@@ -61,15 +61,17 @@ namespace ChallengesWithTestsMark8
 
         public string TurnWordsIntoSentence(string[] words)
         {
+            string sentence = "";
+
             if (words == null || words.Length == 0)
             {
                 return "";
             }
 
             //well this didn't work lol
-            string sentence = string.Join(", ", words);
+            sentence = string.Join(" ", words.Where(x => x != "" && x != " ").Select(y => y.Trim()));
 
-            return sentence;
+            return sentence.Trim() + ".";
 
         }
 
